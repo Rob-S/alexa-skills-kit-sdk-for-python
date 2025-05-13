@@ -188,7 +188,7 @@ class DefaultSerializer(Serializer):
                 # Get object type for each item in the list
                 # Deserialize each item using the object type.
                 sub_obj_type =  re.match(
-                    'list\[(.*)\]', obj_type)
+                    'list\\[(.*)\\]', obj_type)
                 if sub_obj_type is None:
                     return []
                 sub_obj_types = sub_obj_type.group(1)
@@ -209,7 +209,7 @@ class DefaultSerializer(Serializer):
                 # Get object type for each k,v pair in the dict
                 # Deserialize each value using the object type of v.
                 sub_obj_type = re.match(
-                    'dict\(([^,]*), (.*)\)', obj_type)
+                    'dict\\(([^,]*), (.*)\\)', obj_type)
                 if sub_obj_type is None:
                     return {}
                 sub_obj_types = sub_obj_type.group(2)
